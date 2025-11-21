@@ -1,0 +1,41 @@
+{
+  "name": "Aloq - Alles in deiner Stadt",
+  "short_name": "Aloq",
+  "description": "Schluss mit App-Chaos. Aloq bringt dir lokale Services direkt auf den Screen.",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "food", "business"],
+  "shortcuts": [
+    {
+      "name": "Suchen",
+      "short_name": "Suche",
+      "description": "Schnelle Suche nach Services",
+      "url": "/app?action=search",
+      "icons": [{ "src": "/icon-search.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Bestellungen",
+      "short_name": "Orders",
+      "description": "Meine Bestellungen ansehen",
+      "url": "/app/orders",
+      "icons": [{ "src": "/icon-orders.png", "sizes": "96x96" }]
+    }
+  ]
+}
