@@ -1,0 +1,36 @@
+{
+  "name": "aloq",
+  "version": "1.0.0",
+  "description": "Eine App, mit der man in seiner Stadt alles schnell finden und direkt buchen oder bestellen kann: Kaffee abholen, Tisch reservieren, später auch Arzttermine, Blumen, Friseur, Essen oder Tickets – alles in einer Oberfläche.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^16.0.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.39.1",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.22",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.33",
+    "eslint-config-prettier": "^10.1.8",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
+  }
+}
