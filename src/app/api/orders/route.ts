@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
     // Calculate total
     let totalCents = 0;
     const orderItems = items.map((item: any) => {
-      const dbItem = dbItems.find((i) => i.id === item.item_id);
+      const dbItem = dbItems.find((i: any) => i.id === item.item_id);
       if (!dbItem) {
         throw new Error(`Item ${item.item_id} not found`);
       }

@@ -1,29 +1,71 @@
-# Aloq MVP - Tech Demo
+# 🚀 Aloq - Super-App MVP für Deutschland
+
+> **WeChat-inspirierte Super-App** für lokales Bestellen, Mini-Apps und Merchant-Management
 
 **Alles in deiner Stadt. Eine App.**
 
-Eine App, mit der man in seiner Stadt alles schnell finden und direkt buchen oder bestellen kann: Kaffee abholen, Tisch reservieren, später auch Arzttermine, Blumen, Friseur, Essen oder Tickets – alles in einer Oberfläche.
+---
 
-## 🚀 MVP Features
+## 📱 Was ist Aloq?
 
-- ✅ **3 Demo-Venues**: Café Aurora, Backhaus Schmidt, Green Bowl
-- ✅ **Guest Checkout**: Keine Registrierung erforderlich
-- ✅ **Warenkorb**: Items auswählen + Abholzeit wählen
-- ✅ **Stripe Payment**: Testmodus mit Webhook-Integration
-- ✅ **Pickup-Code**: 6-stelliger Code nach Bezahlung
-- ✅ **Merchant Console**: Bestellübersicht + Status-Updates
+Aloq ist Deutschlands Antwort auf WeChat - eine **All-in-One Super-App**, die:
+- **Lokales Bestellen** mit QR-Code-Bestellung am Tisch ermöglicht
+- **Mini-Apps** für 12+ Services (City Pass, Kino, Wäscherei, Beauty, uvm.) bietet
+- **Merchant-Portal** mit Live-Kanban, Menü-Editor und Auszahlungen bereitstellt
+- **Mobile-First** mit vollständiger Desktop-Optimierung designed ist
+
+---
+
+## 🎯 Features
+
+### 👥 User Journey (Kunde)
+
+✅ **Welcome & Onboarding** (`/welcome`) - Rollen-Auswahl & Stadt-Picker  
+✅ **Home Screen** (`/app`) - Suche, Kategorien, Empfohlene Venues  
+✅ **Venue Detail** (`/app/venue/[id]`) - Menü, Cart, Bottom Sheet für Optionen  
+✅ **Checkout** (`/app/checkout`) - Warenkorb, Abholzeit, Stripe Mockup  
+✅ **Order Success** (`/app/order-success`) - Pickup-Code, QR, Timeline, Loyalty Card  
+✅ **Meine Bestellungen** (`/app/orders`) - Aktive/Historie Tabs, Status-Tracking  
+✅ **Mini-Apps Hub** (`/app/apps`) - 12 Mini-Apps Grid mit Kategorien  
+✅ **Suche** (`/app/search`) - Filter, Sortierung, Locations & Produkte  
+
+### 🏪 Merchant Journey (Betreiber)
+
+✅ **Login** (`/merchant/login`) - Demo-Modus aktiviert  
+✅ **Dashboard** (`/merchant/dashboard`) - 4 KPIs, Quick Actions  
+✅ **Live Orders Board** (`/merchant/orders`) - Kanban mit Drag & Drop  
+✅ **Menü-Editor** (`/merchant/menu`) - Tabelle, Aktiv-Schalter, Edit-Sheet  
+✅ **Auszahlungen** (`/merchant/payouts`) - Historie, CSV Export  
+✅ **QR-Codes** (`/merchant/qr`) - Generator für Tisch-Bestellungen  
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 16.0.3 (App Router)
-- **Language**: TypeScript (Strict Mode)
-- **Styling**: Tailwind CSS v4 + shadcn/ui
-- **Database**: Supabase (PostgreSQL + Row Level Security)
-- **Auth**: Supabase Auth (Merchant Only)
-- **Payment**: Stripe (Webhook Support)
-- **Deployment**: Vercel-ready
+### Frontend
+- **Next.js 16.0.3** mit App Router
+- **TypeScript** (Strict Mode)
+- **Tailwind CSS v4** mit Custom Variants
+- **shadcn/ui** (13 Components)
+- **React Context API** für Cart Management
 
-## 🔌 API Endpoints (✅ Implementiert)
+### Drag & Drop
+- `@dnd-kit/core` v6.1.2
+- `@dnd-kit/sortable`
+- `@dnd-kit/utilities`
+
+### Payment
+- `@stripe/stripe-js` (Client-Side)
+- **Mockup Mode** mit Apple Pay / Google Pay Badges
+
+### Backend
+- **Supabase** für Datenbank & Auth
+- **Stripe** für Payments
+- **7 API Routes** für Orders, Venues, Items, Merchant
+
+---
+
+## 🔌 API Endpoints
 
 | Endpoint | Method | Beschreibung |
 |----------|--------|--------------|
@@ -36,40 +78,212 @@ Eine App, mit der man in seiner Stadt alles schnell finden und direkt buchen ode
 | `/api/venues` | GET | Alle aktiven Venues |
 | `/api/venues/[id]` | GET | Venue Detail mit Menü |
 
-## 🎯 User Flow (MVP)
+---
 
-1. **User** öffnet App im Browser
-2. Sieht **3 Demo-Läden** (Café, Bäckerei, Bowl-Restaurant)
-3. Wählt **Laden** → Sieht **Menü**
-4. Fügt **Items** zum **Warenkorb** hinzu
-5. Wählt **Abholzeit** (Slots à 15-30 Min)
-6. Bezahlt mit **Stripe** (Testmodus)
-7. Bekommt **6-stelligen Abhol-Code**
-8. **Merchant** sieht Bestellung im Dashboard
-9. Merchant drückt **"Preparing"** → **"Ready"**
-10. User holt ab, Merchant drückt **"Picked Up"**
+## 🚦 Getting Started
 
-## 🏃‍♂️ Setup & Development
+### 1. Installation
 
 ```bash
-# Installation
 npm install
+```
 
-# Development Server
+### 2. Environment Variables
+
+Erstelle `.env.local`:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
+STRIPE_SECRET_KEY=your_stripe_secret_key
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+STRIPE_WEBHOOK_SECRET=your_webhook_secret
+```
+
+### 3. Dev Server
+
+```bash
 npm run dev
 ```
 
-Öffne [http://localhost:3000](http://localhost:3000) im Browser.
-
-## 🌱 Status
-
-- ✅ Datenbank-Schema (Supabase)
-- ✅ Demo-Daten (3 Venues, 35 Items)
-- ✅ API Routes (7 Endpoints)
-- ⏳ shadcn/ui Integration
-- ⏳ Consumer App Frontend
-- ⏳ Merchant Console
+Öffne [http://localhost:3000](http://localhost:3000)
 
 ---
+
+## 📂 Projekt-Struktur
+
+```
+src/
+├── app/
+│   ├── (user)/                    # User App Route Group
+│   │   ├── welcome/page.tsx       # Onboarding
+│   │   └── app/
+│   │       ├── page.tsx           # Home Screen
+│   │       ├── venue/[id]/        # Venue Detail
+│   │       ├── checkout/          # Checkout Flow
+│   │       ├── order-success/     # Success Screen
+│   │       ├── orders/            # Order History
+│   │       ├── apps/              # Mini-Apps Hub
+│   │       └── search/            # Search Results
+│   │
+│   ├── merchant/                  # Merchant Portal
+│   │   ├── layout.tsx             # Desktop Sidebar + Mobile Nav
+│   │   ├── login/                 # Auth
+│   │   ├── dashboard/             # Dashboard
+│   │   ├── orders/                # Live Kanban Board
+│   │   ├── menu/                  # Menu Editor
+│   │   ├── payouts/               # Payouts Overview
+│   │   └── qr/                    # QR Code Generator
+│   │
+│   ├── api/                       # Backend Routes
+│   └── layout.tsx                 # Root Layout mit CartProvider
+│
+├── components/ui/                 # shadcn Components
+├── contexts/CartContext.tsx       # Global Cart State
+└── lib/                           # Supabase & Stripe Clients
+```
+
+---
+
+## 🎨 Mockup Data
+
+**Alle Mockup-Daten sind mit Kommentaren markiert:**
+
+```typescript
+// MOCKUP DATA - In Production von API laden
+const MOCKUP_VENUES = [...]
+
+// **MOCKUP:** Stripe Elements Integration
+<div className="p-6 bg-neutral-100">
+  **MOCKUP:** Stripe Elements wird hier integriert
+</div>
+```
+
+**Zu ersetzen:**
+1. Venue-Daten → API Calls
+2. Order-Daten → API mit Email-Filter
+3. Stripe Elements → Echte Integration
+4. QR-Code → Library (z.B. `qrcode.react`)
+5. Merchant Stats → API Aggregation
+
+---
+
+## 📱 Routing & Navigation
+
+### User Routes
+```
+/welcome              → Onboarding
+/app                  → Home Screen
+/app/venue/[id]       → Venue Detail
+/app/checkout         → Checkout
+/app/order-success    → Success Screen
+/app/orders           → Order History
+/app/apps             → Mini-Apps Hub
+/app/search           → Search Results
+```
+
+### Merchant Routes
+```
+/merchant/login       → Auth
+/merchant/dashboard   → Dashboard
+/merchant/orders      → Live Orders Kanban
+/merchant/menu        → Menu Editor
+/merchant/payouts     → Payouts Overview
+/merchant/qr          → QR Code Generator
+```
+
+---
+
+## 🎯 User Flows
+
+### Flow 1: Bestellung aufgeben
+```
+/welcome → /app → /app/venue/1 → Add to Cart
+→ /app/checkout → Payment → /app/order-success
+```
+
+### Flow 2: Merchant Bestellung bearbeiten
+```
+/merchant/login → /merchant/dashboard → Live Orders
+→ Drag Order to "In Vorbereitung"
+```
+
+---
+
+## 🌟 WeChat-Inspiration
+
+Aloq folgt dem **WeChat Super-App Modell**:
+
+1. **Einheitliche Platform**: Eine App für alles
+2. **Mini-Apps**: Leichtgewichtige Services ohne Download
+3. **QR-Codes**: Überall scanbar (Tische, Poster)
+4. **Social Layer**: Teilen von Bestellungen & Codes
+5. **Loyalty**: Stempelkarten & Rewards
+6. **Merchant Tools**: Integriertes Business Dashboard
+
+---
+
+## 🐛 Bekannte Issues
+
+1. **TypeScript Errors** in API Routes (Supabase Type Inference) - Non-Blocking
+2. **Mockup Data** muss durch echte API Calls ersetzt werden
+3. **Stripe Elements** Integration ausstehend
+
+---
+
+## 📈 Production Todos
+
+- [ ] Mockup Data durch API Calls ersetzen
+- [ ] Stripe Elements Integration
+- [ ] QR-Code Library einbinden
+- [ ] Supabase Auth aktivieren
+- [ ] TypeScript Errors fixen
+- [ ] E2E Tests mit Playwright
+- [ ] Deployment auf Vercel
+
+---
+
+## 👨‍💻 Development Notes
+
+### Cart Management
+```typescript
+const { cart, addToCart, getTotalCents } = useCart();
+
+addToCart({
+  venueId: '1',
+  itemId: '1',
+  itemName: 'Latte Macchiato',
+  priceCents: 340,
+  quantity: 1,
+});
+```
+
+### Drag & Drop
+```typescript
+const { attributes, listeners, setNodeRef, transform } = useSortable({ 
+  id: order.id 
+});
+```
+
+---
+
+## 📄 License
+
+MIT - Created for Deutschland 🇩🇪
+
+---
+
+## 🙏 Credits
+
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Icons**: Heroicons (via Tailwind)
+- **Drag & Drop**: [@dnd-kit](https://dndkit.com/)
+- **Inspiration**: WeChat, Alipay, Gojek
+
+---
+
+**Built with 💙 - Ready to revolutionize Germany's local commerce** 🚀
 
 **Gebaut mit ❤️ für eine bessere, zugänglichere Welt.**

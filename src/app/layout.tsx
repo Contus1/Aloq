@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { CartProvider } from '@/contexts/CartContext';
 
 export const metadata: Metadata = {
   title: 'Aloq - Alles in deiner Stadt. Eine App.',
   description:
-    'Schluss mit App-Chaos. Aloq bringt dir lokale Services direkt auf den Screen – vom Cappuccino bis zum Tisch.',
+    'Schluss mit App-Chaos. Ein einziger Ort, statt sperate Apps für Essenslieferung, Reservierung oder Events',
   keywords: ['aloq', 'local services', 'booking', 'reservation', 'pwa'],
   authors: [{ name: 'Aloq' }],
   manifest: '/manifest.json',
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="de" suppressHydrationWarning>
       <body className="antialiased bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50">
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );
