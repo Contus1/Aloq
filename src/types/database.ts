@@ -86,7 +86,31 @@ export interface Database {
         > & {
           id?: string;
         };
-        Update: Partial<Database['public']['Tables']['orders']['Insert']>;
+        Update: {
+          venue_id?: string;
+          status?:
+            | 'pending'
+            | 'requires_payment'
+            | 'paid'
+            | 'preparing'
+            | 'ready'
+            | 'picked_up'
+            | 'cancelled';
+          total_cents?: number;
+          currency?: string;
+          pickup_at?: string;
+          pickup_code?: string;
+          contact_name?: string;
+          contact_email?: string;
+          contact_phone?: string | null;
+          payment_intent_id?: string | null;
+          payment_status?: string | null;
+          customer_notes?: string | null;
+          merchant_notes?: string | null;
+          paid_at?: string | null;
+          ready_at?: string | null;
+          picked_up_at?: string | null;
+        };
       };
       order_items: {
         Row: {

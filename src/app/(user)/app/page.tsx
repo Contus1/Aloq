@@ -20,9 +20,9 @@ const RECOMMENDED_SPOTS = [
     id: '00000000-0000-0000-0000-000000000001',
     name: 'Café Aurora',
     type: 'Café',
-    description: 'Kaffee in 10 min abholbereit',
-    image: '/api/placeholder/400/300',
-    badges: ['Beliebt', 'Open until 18:00'],
+    description: 'Third-wave Espresso & Croissants',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80',
+    badges: ['Beliebt', 'AI generiertes Bild'],
     distance: '0.3 km',
     rating: 4.8,
     pickupTime: '10-15 Min',
@@ -31,9 +31,9 @@ const RECOMMENDED_SPOTS = [
     id: '00000000-0000-0000-0000-000000000002',
     name: 'Backhaus Schmidt',
     type: 'Bäckerei',
-    description: 'Frische Backwaren zum Vorbestellen',
-    image: '/api/placeholder/400/300',
-    badges: ['Frische Backwaren', 'Vorbestellen'],
+    description: 'Frische Backwaren & Sauerteig seit 1985',
+    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80',
+    badges: ['Frische Backwaren', 'AI generiertes Bild'],
     distance: '0.5 km',
     rating: 4.9,
     pickupTime: '15-20 Min',
@@ -42,9 +42,9 @@ const RECOMMENDED_SPOTS = [
     id: '00000000-0000-0000-0000-000000000003',
     name: 'Blumen Müller',
     type: 'Blumenladen',
-    description: 'Frische Blumen & Sträuße bestellen',
-    image: '/api/placeholder/400/300',
-    badges: ['Lokal', 'Frisch'],
+    description: 'Frische Sträuße & Greenery to-go',
+    image: 'https://images.unsplash.com/photo-1469536000970-8f1423a10774?auto=format&fit=crop&w=1200&q=80',
+    badges: ['Lokal', 'AI generiertes Bild'],
     distance: '0.7 km',
     rating: 4.7,
     pickupTime: '20-30 Min',
@@ -53,9 +53,9 @@ const RECOMMENDED_SPOTS = [
     id: '00000000-0000-0000-0000-000000000004',
     name: 'Green Bowl',
     type: 'Lunch',
-    description: 'Frische Bowls & Salate',
-    image: '/api/placeholder/400/300',
-    badges: ['Beliebt', 'Vegan Options'],
+    description: 'Bowls, Greens & Haus-Dressings',
+    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80',
+    badges: ['Beliebt', 'AI generiertes Bild'],
     distance: '0.8 km',
     rating: 4.7,
     pickupTime: '20-25 Min',
@@ -155,88 +155,92 @@ export default function UserHomePage() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {RECOMMENDED_SPOTS.map((spot) => (
               <Link key={spot.id} href={`/app/venue/${spot.id}`}>
-                <Card className="overflow-hidden hover:shadow-lg transition-all hover:scale-[1.02] cursor-pointer">
-                  {/* Image Placeholder */}
-                  <div className="h-40 bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center relative">
-                    <span className="text-6xl">{CATEGORIES.find(c => spot.type.toLowerCase().includes(c.label.toLowerCase()))?.icon || '🏪'}</span>
-                    <div className="absolute top-2 right-2 flex gap-2">
+                <Card className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer border border-neutral-200/70 dark:border-neutral-800/60">
+                  <div
+                    className="relative h-44"
+                    style={{
+                      backgroundImage: `linear-gradient(180deg, rgba(15,15,20,0.05) 0%, rgba(15,15,20,0.65) 100%), url(${spot.image})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-transparent" />
+                    <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-[11px] bg-white/90 text-neutral-900 border-neutral-200">
+                        AI Bild
+                      </Badge>
                       {spot.badges.slice(0, 1).map((badge, i) => (
                         <Badge
                           key={i}
                           variant={badge === 'Beliebt' ? 'default' : 'secondary'}
-                          className="text-xs"
+                          className="text-[11px]"
                         >
                           {badge}
                         </Badge>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 space-y-3">
-                    <div>
-                      <div className="flex items-start justify-between mb-1">
-                        <h3 className="font-semibold text-base">{spot.name}</h3>
-                        <div className="flex items-center gap-1 text-xs">
+                    <div className="absolute bottom-3 left-3 right-3 text-white space-y-1 drop-shadow-lg">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold uppercase tracking-wide">{spot.type}</span>
+                        <div className="flex items-center gap-1 text-xs font-semibold">
                           <svg
-                            className="w-4 h-4 text-yellow-500 fill-current"
+                            className="w-4 h-4 text-yellow-300 fill-current"
                             viewBox="0 0 20 20"
                           >
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>
-                          <span className="font-medium">{spot.rating}</span>
+                          <span>{spot.rating}</span>
                         </div>
                       </div>
-                      <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                        {spot.description}
-                      </p>
+                      <p className="text-lg font-bold leading-tight">{spot.name}</p>
+                      <p className="text-sm text-white/90 line-clamp-2">{spot.description}</p>
                     </div>
+                  </div>
 
-                    <div className="flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-3 text-neutral-600 dark:text-neutral-400">
-                        <span className="flex items-center gap-1">
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                          {spot.pickupTime}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                            />
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                            />
-                          </svg>
-                          {spot.distance}
-                        </span>
-                      </div>
-                      <Badge variant="outline" className="text-xs">
-                        {spot.type}
-                      </Badge>
+                  <div className="p-4 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-3 text-neutral-600 dark:text-neutral-400">
+                      <span className="flex items-center gap-1">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        {spot.pickupTime}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                        {spot.distance}
+                      </span>
                     </div>
+                    <Badge variant="outline" className="text-xs">
+                      {spot.type}
+                    </Badge>
                   </div>
                 </Card>
               </Link>

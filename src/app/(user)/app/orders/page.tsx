@@ -81,12 +81,12 @@ export default function OrdersPage() {
 
   const getStatusBadge = (status: string) => {
     const statusMap = {
-      pending: { label: 'Eingegangen', variant: 'secondary' as const },
-      paid: { label: 'Bezahlt', variant: 'default' as const },
-      preparing: { label: 'In Vorbereitung', variant: 'default' as const, icon: '👨‍🍳' },
+      pending: { label: 'Eingegangen', variant: 'secondary' as const, pulse: false, icon: undefined },
+      paid: { label: 'Bezahlt', variant: 'default' as const, pulse: false, icon: undefined },
+      preparing: { label: 'In Vorbereitung', variant: 'default' as const, icon: '👨‍🍳', pulse: false },
       ready: { label: 'Bereit', variant: 'default' as const, icon: '✅', pulse: true },
-      picked_up: { label: 'Abgeholt', variant: 'outline' as const, icon: '✨' },
-      cancelled: { label: 'Storniert', variant: 'destructive' as const },
+      picked_up: { label: 'Abgeholt', variant: 'outline' as const, icon: '✨', pulse: false },
+      cancelled: { label: 'Storniert', variant: 'destructive' as const, pulse: false, icon: undefined },
     };
     return statusMap[status as keyof typeof statusMap] || statusMap.pending;
   };

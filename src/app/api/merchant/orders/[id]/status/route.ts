@@ -20,23 +20,20 @@ export async function POST(
 
     // TODO: Add auth check - verify user has access to this order's venue
 
-    // Prepare update data
-    const updateData: any = {
-      status,
-      updated_at: new Date().toISOString(),
-    };
-
+    // Build update object
+    const updates: { status: string; ready_at?: string; picked_up_at?: string } = { status };
+    
     // Add timestamp fields based on status
     if (status === 'ready') {
-      updateData.ready_at = new Date().toISOString();
+      updates.ready_at = new Date().toISOString();
     } else if (status === 'picked_up') {
-      updateData.picked_up_at = new Date().toISOString();
+      updates.picked_up_at = new Date().toISOString();
     }
 
     // Update order
     const { data: order, error } = await supabaseAdmin
       .from('orders')
-      .update(updateData)
+      .update(updates)
       .eq('id', id)
       .select()
       .single();

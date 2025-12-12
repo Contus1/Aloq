@@ -6,6 +6,50 @@
 
 ---
 
+## ⚡ Mockup lokal starten (2 Schritte)
+
+1) `npm install`  
+2) `npm run dev` → öffne [http://localhost:3000](http://localhost:3000)  
+→ Kein `.env.local` nötig; alles läuft als Mockup ohne Stripe/Supabase Setup.
+
+---
+
+## 🎤 Elevator Pitch
+
+Eine App, mit der man in seiner Stadt alles schnell finden und direkt buchen oder bestellen kann: Kaffee abholen, Tisch reservieren, später auch Arzttermine, Blumen, Friseur, Essen oder Tickets – alles in einer Oberfläche. Ein Login, eine Suche, eine Aktion.
+
+---
+
+## 🧭 Plan & Fokus (heute ↔ in den nächsten Monaten)
+
+- **Grundidee**: Deutschland hat für jeden Service eine eigene App (Doctolib, Lieferando, TheFork, Fleurop). Aloq bündelt das in einer Suche: „Cappuccino“, „Tisch 19:00“, „Blumen“, „Arzt morgen“.
+- **Startpunkt (MVP)**: Café- & Takeaway-Pickup + Tischreservierungen. Ziel: Bestellung/Reservierung in zwei Klicks, ohne App-Wechsel oder Telefonate.
+- **Technische Entscheidung**: Kein Xcode-Start. Stattdessen Next.js + React + PWA für eine Codebasis (iPhone, Android, Desktop, Händlerkonsole), schnelle Builds/Hosting (Vercel), einfache Payments (Stripe) und SEO für die Homepage.
+
+### Aktuelle Bauphase (Nov–Feb, Korea)
+- Landing Page + Domain (Aloq.com o. Ä.) mit „Pilot-Partner“-Formular und Mockup-Screens.
+- App-Grundgerüst mit 3 Demo-Stores (Café, Bäckerei, Lunch), Menüs/Optionen/Abhol-Slots, Checkout (Stripe PaymentIntent Mock), Guest/Magic-Link optional, einfache Suche (lokal seeded), UI mit Tailwind + shadcn.
+- Händler-Konsole als PWA: Login, Öffnungszeiten, Menü-Editor, Bestellübersicht, „Ready“-Button.
+- Recht & Business vorbereiten: AGB, Händlervertrag, Datenschutz, Impressum, Widerrufsbelehrung; Pitch Deck + Produktvideo; Pilot-Kit (Flyer, QR, Händlervertrag).
+
+### Deutschland-Phase (ab März)
+- Gewerbe anmelden (Kleingewerbe oder UG), Pilotstadt 20–80k Einwohner wählen.
+- 10+ Cafés/Takeaways onboarden (Demo vor Ort, QR-Sticker, Flyer), „City Alpha“-Launch.
+- Pilotstart: Launch-Day, PR/Local Ads, Studenten als erste Nutzer. Ziel: 300+ Orders in 30 Tagen und Messung von Conversion, Top-Items, Peak-Zeiten.
+
+### Timeline kompakt
+- **Nov–Dez**: Name + Domain, Design-System/Logo, Landing Page, Next.js + Supabase + Stripe Gerüst, Händler-Konsole v1, Demo-USPs.
+- **Jan–Feb**: Fake-Daten + echter Clickthrough, End-to-end Flow fertig, Produktvideo, Rechtspaket, Pitch Deck, Pilot-Kit (Flyer/QR/Vertrag).
+- **März**: Gewerbe, Pilotstadt, Kaltakquise zu Fuß, 10+ Betriebe onboarden, Aloq „City Alpha“ live.
+- **Apr–Mai**: Feature-Fixes, native Reservations falls sinnvoll, Payment-Auszahlungen automatisieren, zweite Stadt vorbereiten.
+
+### Langfristige Vision (Super-App für lokale Services)
+- Geplante Integrationen: Gesundheit (Doctolib/Apotheken/Teststellen), Essen & Pickup, Cafés/Bäckerei, Friseur/Beauty (Treatwell/Reserve-with-Google), Blumen/Geschenke, Mobilität (ÖPNV/E-Scooter), Stadtservices (Recycling/Bürgerbüro/Events), Local Pay Wallet + Treuepunkte.
+- Ziel-Metriken: Conversion >30 %, 10+ Betriebe je Stadt, AOV 12–18 €, Retention 25 % nach 30 Tagen.
+- Nutzen: Nutzer ohne App-Hopping, Betriebe bekommen Sichtbarkeit/Bestellungen ohne eigene Website, Städte stärken lokale Anbieter digital.
+
+---
+
 ## 📱 Was ist Aloq?
 
 Aloq ist Deutschlands Antwort auf WeChat - eine **All-in-One Super-App**, die:
@@ -37,6 +81,13 @@ Aloq ist Deutschlands Antwort auf WeChat - eine **All-in-One Super-App**, die:
 ✅ **Menü-Editor** (`/merchant/menu`) - Tabelle, Aktiv-Schalter, Edit-Sheet  
 ✅ **Auszahlungen** (`/merchant/payouts`) - Historie, CSV Export  
 ✅ **QR-Codes** (`/merchant/qr`) - Generator für Tisch-Bestellungen  
+
+---
+
+## 🚉 RMV Mini-App (Mockup)
+
+- Tickets (Einzelfahrt, Tageskarte, Deutschland-Ticket) + fiktive Verbindungsauskunft mit Gleis/Status/Auslastung.
+- Demo unter `/app/apps/rmv` – Mock-Kauf leitet in die Bestellungen.
 
 ---
 
@@ -88,27 +139,15 @@ Aloq ist Deutschlands Antwort auf WeChat - eine **All-in-One Super-App**, die:
 npm install
 ```
 
-### 2. Environment Variables
-
-Erstelle `.env.local`:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-
-STRIPE_SECRET_KEY=your_stripe_secret_key
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
-STRIPE_WEBHOOK_SECRET=your_webhook_secret
-```
-
-### 3. Dev Server
+### 2. Dev Server (Mockup-Only)
 
 ```bash
 npm run dev
 ```
 
 Öffne [http://localhost:3000](http://localhost:3000)
+
+> Aktuell ist alles Mockup – kein Stripe/Supabase Setup oder `.env.local` erforderlich.
 
 ---
 
