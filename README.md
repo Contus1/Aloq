@@ -6,7 +6,7 @@
 
 ---
 
-## ⚡ Mockup lokal starten (idiotensicher)
+## ⚡ Mockup lokal starten 
 
 1) Voraussetzungen: Node.js 18+ und npm installiert. (Git nur nötig, wenn du per Repo klonst.)
 2) Projekt in VS Code öffnen: `File → Open Folder` und den Ordner wählen, in dem die `package.json` liegt (`aloq`).
