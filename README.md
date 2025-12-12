@@ -18,7 +18,7 @@
 
 ---
 
-## Also, um was geht es?
+## Also, lets go:
 
 Eine App, mit der man in seiner Stadt alles schnell finden und direkt buchen oder bestellen kann: Kaffee abholen, Tisch reservieren, später auch Arzttermine, Blumen, Friseur, Essen oder Tickets – alles in einer Oberfläche. Ein Login, eine Suche, eine Aktion.
 
