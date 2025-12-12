@@ -18,39 +18,9 @@
 
 ---
 
-## 🎤 Elevator Pitch
+## Also, um was geht es?
 
 Eine App, mit der man in seiner Stadt alles schnell finden und direkt buchen oder bestellen kann: Kaffee abholen, Tisch reservieren, später auch Arzttermine, Blumen, Friseur, Essen oder Tickets – alles in einer Oberfläche. Ein Login, eine Suche, eine Aktion.
-
----
-
-## 🧭 Plan & Fokus (heute ↔ in den nächsten Monaten)
-
-- **Grundidee**: Deutschland hat für jeden Service eine eigene App (Doctolib, Lieferando, TheFork, Fleurop). Aloq bündelt das in einer Suche: „Cappuccino“, „Tisch 19:00“, „Blumen“, „Arzt morgen“.
-- **Startpunkt (MVP)**: Café- & Takeaway-Pickup + Tischreservierungen. Ziel: Bestellung/Reservierung in zwei Klicks, ohne App-Wechsel oder Telefonate.
-- **Technische Entscheidung**: Kein Xcode-Start. Stattdessen Next.js + React + PWA für eine Codebasis (iPhone, Android, Desktop, Händlerkonsole), schnelle Builds/Hosting (Vercel), einfache Payments (Stripe) und SEO für die Homepage.
-
-### Aktuelle Bauphase (Nov–Feb, Korea)
-- Landing Page + Domain (Aloq.com o. Ä.) mit „Pilot-Partner“-Formular und Mockup-Screens.
-- App-Grundgerüst mit 3 Demo-Stores (Café, Bäckerei, Lunch), Menüs/Optionen/Abhol-Slots, Checkout (Stripe PaymentIntent Mock), Guest/Magic-Link optional, einfache Suche (lokal seeded), UI mit Tailwind + shadcn.
-- Händler-Konsole als PWA: Login, Öffnungszeiten, Menü-Editor, Bestellübersicht, „Ready“-Button.
-- Recht & Business vorbereiten: AGB, Händlervertrag, Datenschutz, Impressum, Widerrufsbelehrung; Pitch Deck + Produktvideo; Pilot-Kit (Flyer, QR, Händlervertrag).
-
-### Deutschland-Phase (ab März)
-- Gewerbe anmelden (Kleingewerbe oder UG), Pilotstadt 20–80k Einwohner wählen.
-- 10+ Cafés/Takeaways onboarden (Demo vor Ort, QR-Sticker, Flyer), „City Alpha“-Launch.
-- Pilotstart: Launch-Day, PR/Local Ads, Studenten als erste Nutzer. Ziel: 300+ Orders in 30 Tagen und Messung von Conversion, Top-Items, Peak-Zeiten.
-
-### Timeline kompakt
-- **Nov–Dez**: Name + Domain, Design-System/Logo, Landing Page, Next.js + Supabase + Stripe Gerüst, Händler-Konsole v1, Demo-USPs.
-- **Jan–Feb**: Fake-Daten + echter Clickthrough, End-to-end Flow fertig, Produktvideo, Rechtspaket, Pitch Deck, Pilot-Kit (Flyer/QR/Vertrag).
-- **März**: Gewerbe, Pilotstadt, Kaltakquise zu Fuß, 10+ Betriebe onboarden, Aloq „City Alpha“ live.
-- **Apr–Mai**: Feature-Fixes, native Reservations falls sinnvoll, Payment-Auszahlungen automatisieren, zweite Stadt vorbereiten.
-
-### Langfristige Vision (Super-App für lokale Services)
-- Geplante Integrationen: Gesundheit (Doctolib/Apotheken/Teststellen), Essen & Pickup, Cafés/Bäckerei, Friseur/Beauty (Treatwell/Reserve-with-Google), Blumen/Geschenke, Mobilität (ÖPNV/E-Scooter), Stadtservices (Recycling/Bürgerbüro/Events), Local Pay Wallet + Treuepunkte.
-- Ziel-Metriken: Conversion >30 %, 10+ Betriebe je Stadt, AOV 12–18 €, Retention 25 % nach 30 Tagen.
-- Nutzen: Nutzer ohne App-Hopping, Betriebe bekommen Sichtbarkeit/Bestellungen ohne eigene Website, Städte stärken lokale Anbieter digital.
 
 ---
 
@@ -88,6 +58,21 @@ Aloq ist Deutschlands Antwort auf WeChat - eine **All-in-One Super-App**, die:
 
 ---
 
+## 🎯 User Flows
+
+### Flow 1: Bestellung aufgeben
+```
+/welcome → /app → /app/venue/1 → Add to Cart
+→ /app/checkout → Payment → /app/order-success
+```
+
+### Flow 2: Merchant Bestellung bearbeiten
+```
+/merchant/login → /merchant/dashboard → Live Orders
+→ Drag Order to "In Vorbereitung"
+```
+---
+
 ## 🚉 RMV Mini-App (Mockup)
 
 - Tickets (Einzelfahrt, Tageskarte, Deutschland-Ticket) + fiktive Verbindungsauskunft mit Gleis/Status/Auslastung.
@@ -120,6 +105,36 @@ Aloq ist Deutschlands Antwort auf WeChat - eine **All-in-One Super-App**, die:
 
 ---
 
+## 🧭 Plan & Fokus (heute ↔ in den nächsten Monaten)
+
+- **Grundidee**: Deutschland hat für jeden Service eine eigene App (Doctolib, Lieferando, TheFork, Fleurop). Aloq bündelt das in einer Suche: „Cappuccino“, „Tisch 19:00“, „Blumen“, „Arzt morgen“.
+- **Startpunkt (MVP)**: Café- & Takeaway-Pickup + Tischreservierungen. Ziel: Bestellung/Reservierung in zwei Klicks, ohne App-Wechsel oder Telefonate.
+- **Technische Entscheidung**: Kein Xcode-Start. Stattdessen Next.js + React + PWA für eine Codebasis (iPhone, Android, Desktop, Händlerkonsole), schnelle Builds/Hosting (Vercel), einfache Payments (Stripe) und SEO für die Homepage.
+
+### Aktuelle Bauphase (Nov–Feb, Korea)
+- Landing Page + Domain (Aloq.com o. Ä.) mit „Pilot-Partner“-Formular und Mockup-Screens.
+- App-Grundgerüst mit 3 Demo-Stores (Café, Bäckerei, Lunch), Menüs/Optionen/Abhol-Slots, Checkout (Stripe PaymentIntent Mock), Guest/Magic-Link optional, einfache Suche (lokal seeded), UI mit Tailwind + shadcn.
+- Händler-Konsole als PWA: Login, Öffnungszeiten, Menü-Editor, Bestellübersicht, „Ready“-Button.
+- Recht & Business vorbereiten: AGB, Händlervertrag, Datenschutz, Impressum, Widerrufsbelehrung; Pitch Deck + Produktvideo; Pilot-Kit (Flyer, QR, Händlervertrag).
+
+### Deutschland-Phase (ab März)
+- Gewerbe anmelden (Kleingewerbe oder UG), Pilotstadt 20–80k Einwohner wählen.
+- 10+ Cafés/Takeaways onboarden (Demo vor Ort, QR-Sticker, Flyer), „City Alpha“-Launch.
+- Pilotstart: Launch-Day, PR/Local Ads, Studenten als erste Nutzer. Ziel: 300+ Orders in 30 Tagen und Messung von Conversion, Top-Items, Peak-Zeiten.
+
+### Timeline kompakt
+- **Nov–Dez**: Name + Domain, Design-System/Logo, Landing Page, Next.js + Supabase + Stripe Gerüst, Händler-Konsole v1, Demo-USPs.
+- **Jan–Feb**: Fake-Daten + echter Clickthrough, End-to-end Flow fertig, Produktvideo, Rechtspaket, Pitch Deck, Pilot-Kit (Flyer/QR/Vertrag).
+- **März**: Gewerbe, Pilotstadt, Kaltakquise zu Fuß, 10+ Betriebe onboarden, Aloq „City Alpha“ live.
+- **Apr–Mai**: Feature-Fixes, native Reservations falls sinnvoll, Payment-Auszahlungen automatisieren, zweite Stadt vorbereiten.
+
+### Langfristige Vision (Super-App für lokale Services)
+- Geplante Integrationen: Gesundheit (Doctolib/Apotheken/Teststellen), Essen & Pickup, Cafés/Bäckerei, Friseur/Beauty (Treatwell/Reserve-with-Google), Blumen/Geschenke, Mobilität (ÖPNV/E-Scooter), Stadtservices (Recycling/Bürgerbüro/Events), Local Pay Wallet + Treuepunkte.
+- Ziel-Metriken: Conversion >30 %, 10+ Betriebe je Stadt, AOV 12–18 €, Retention 25 % nach 30 Tagen.
+- Nutzen: Nutzer ohne App-Hopping, Betriebe bekommen Sichtbarkeit/Bestellungen ohne eigene Website, Städte stärken lokale Anbieter digital.
+
+---
+
 ## 🔌 API Endpoints
 
 | Endpoint | Method | Beschreibung |
@@ -132,26 +147,6 @@ Aloq ist Deutschlands Antwort auf WeChat - eine **All-in-One Super-App**, die:
 | `/api/search?q=` | GET | Suche über Venues + Items |
 | `/api/venues` | GET | Alle aktiven Venues |
 | `/api/venues/[id]` | GET | Venue Detail mit Menü |
-
----
-
-## 🚦 Getting Started
-
-### 1. Installation
-
-```bash
-npm install
-```
-
-### 2. Dev Server (Mockup-Only)
-
-```bash
-npm run dev
-```
-
-Öffne [http://localhost:3000](http://localhost:3000)
-
-> Aktuell ist alles Mockup – kein Stripe/Supabase Setup oder `.env.local` erforderlich.
 
 ---
 
@@ -187,29 +182,6 @@ src/
 ├── contexts/CartContext.tsx       # Global Cart State
 └── lib/                           # Supabase & Stripe Clients
 ```
-
----
-
-## 🎨 Mockup Data
-
-**Alle Mockup-Daten sind mit Kommentaren markiert:**
-
-```typescript
-// MOCKUP DATA - In Production von API laden
-const MOCKUP_VENUES = [...]
-
-// **MOCKUP:** Stripe Elements Integration
-<div className="p-6 bg-neutral-100">
-  **MOCKUP:** Stripe Elements wird hier integriert
-</div>
-```
-
-**Zu ersetzen:**
-1. Venue-Daten → API Calls
-2. Order-Daten → API mit Email-Filter
-3. Stripe Elements → Echte Integration
-4. QR-Code → Library (z.B. `qrcode.react`)
-5. Merchant Stats → API Aggregation
 
 ---
 
@@ -268,26 +240,6 @@ Aloq folgt dem **WeChat Super-App Modell**:
 
 ---
 
-## 🐛 Bekannte Issues
-
-1. **TypeScript Errors** in API Routes (Supabase Type Inference) - Non-Blocking
-2. **Mockup Data** muss durch echte API Calls ersetzt werden
-3. **Stripe Elements** Integration ausstehend
-
----
-
-## 📈 Production Todos
-
-- [ ] Mockup Data durch API Calls ersetzen
-- [ ] Stripe Elements Integration
-- [ ] QR-Code Library einbinden
-- [ ] Supabase Auth aktivieren
-- [ ] TypeScript Errors fixen
-- [ ] E2E Tests mit Playwright
-- [ ] Deployment auf Vercel
-
----
-
 ## 👨‍💻 Development Notes
 
 ### Cart Management
@@ -309,12 +261,6 @@ const { attributes, listeners, setNodeRef, transform } = useSortable({
   id: order.id 
 });
 ```
-
----
-
-## 📄 License
-
-MIT - Created for Deutschland 🇩🇪
 
 ---
 
