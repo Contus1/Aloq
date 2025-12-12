@@ -6,11 +6,15 @@
 
 ---
 
-## ⚡ Mockup lokal starten (2 Schritte)
+## ⚡ Mockup lokal starten (idiotensicher)
 
-1) `npm install`  
-2) `npm run dev` → öffne [http://localhost:3000](http://localhost:3000)  
-→ Kein `.env.local` nötig; alles läuft als Mockup ohne Stripe/Supabase Setup.
+1) Voraussetzungen: Node.js 18+ und npm installiert. (Git nur nötig, wenn du per Repo klonst.)
+2) Projekt in VS Code öffnen: `File → Open Folder` und den Ordner wählen, in dem die `package.json` liegt (`aloq`).
+3) VS-Code-Terminal öffnen (``Ctrl+` `` bzw. `View → Terminal`) und sicherstellen, dass du im Projektordner bist (`pwd` zeigt auf `.../aloq`).
+4) Abhängigkeiten holen: `npm install`
+5) Dev-Server starten: `npm run dev` und im Browser [http://localhost:3000](http://localhost:3000) öffnen. Wichtige Mock-Routen: `/app`, `/app/apps/rmv` (RMV Tickets + Verbindungen), `/app/venue/...`.
+
+> Kein `.env.local` nötig; alles läuft als Mockup ohne Stripe/Supabase Setup.
 
 ---
 
